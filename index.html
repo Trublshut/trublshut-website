@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="TRUBLSHUT — We diagnose, strategise and automate. Intelligent automation for businesses in Nigeria and Kenya.">
+<title>TRUBLSHUT — Diagnose. Strategise. Automate.</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,700;9..144,900&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --paper:#f4f1ea;          /* warm paper */
+  --paper2:#ece8de;         /* deeper paper */
+  --ink:#1c2420;            /* near-black green ink */
+  --ink-soft:#4a544e;       /* soft ink */
+  --faint:#8a9088;          /* faint ink */
+  --green:#0e7a4a;          /* TRUBLSHUT green — traffic-light GO */
+  --green-deep:#0a5c38;
+  --green-pale:#dcebe0;
+  --green-line:rgba(14,122,74,.25);
+  --line:#d8d3c6;           /* hairline */
+  --serif:'Fraunces',serif;
+  --sans:'Space Grotesk',sans-serif;
+  --mono:'Space Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.65;overflow-x:hidden}
+
+/* faint dotted grid backdrop — unique texture */
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(var(--line) 1px,transparent 1px);
+  background-size:34px 34px;opacity:.4}
+
+/* ───────── VIEW SYSTEM (button-loaded sections, no scroll-nav) ───────── */
+.view{display:none;position:relative;z-index:1;min-height:100vh;padding-top:78px;
+  animation:viewIn .45s cubic-bezier(.2,.7,.3,1)}
+.view.on{display:block}
+@keyframes viewIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* ───────── HEADER ───────── */
+header{position:fixed;top:0;left:0;right:0;z-index:100;height:78px;
+  background:rgba(244,241,234,.9);backdrop-filter:blur(10px);
+  border-bottom:1.5px solid var(--ink);
+  display:flex;align-items:center;justify-content:space-between;padding:0 clamp(18px,4vw,48px)}
+.logo{font-family:var(--sans);font-weight:700;font-size:1.25rem;letter-spacing:.14em;
+  color:var(--green);cursor:pointer;display:flex;align-items:center;gap:10px;user-select:none}
+.logo .go-light{width:11px;height:11px;border-radius:50%;background:var(--green);
+  box-shadow:0 0 0 4px var(--green-pale);animation:go 2.4s ease-in-out infinite}
+@keyframes go{0%,100%{box-shadow:0 0 0 4px var(--green-pale)}50%{box-shadow:0 0 0 8px rgba(14,122,74,.12)}}
+.menu{display:flex;align-items:center;gap:2px}
+.menu button{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
+  background:none;border:none;color:var(--ink-soft);padding:9px 15px;cursor:pointer;
+  border-radius:999px;transition:.2s}
+.menu button:hover{color:var(--ink);background:var(--paper2)}
+.menu button.here{color:var(--green);background:var(--green-pale)}
+.menu .cta{background:var(--green);color:#fff;font-weight:700;margin-left:8px}
+.menu .cta:hover{background:var(--green-deep);color:#fff}
+.burger{display:none;background:none;border:1.5px solid var(--ink);border-radius:8px;
+  width:42px;height:38px;cursor:pointer;font-size:1.05rem;color:var(--ink)}
+@media(max-width:920px){
+  .menu{position:fixed;top:78px;right:0;left:0;background:var(--paper);flex-direction:column;
+    align-items:stretch;padding:14px;border-bottom:1.5px solid var(--ink);display:none}
+  .menu.open{display:flex}
+  .menu button{text-align:left;padding:14px 16px;font-size:.85rem}
+  .menu .cta{margin-left:0;text-align:center}
+  .burger{display:block}
+}
+
+/* ───────── SHARED PIECES ───────── */
+.wrap{max-width:1140px;margin:0 auto;padding:0 clamp(18px,4vw,48px)}
+.kicker{font-family:var(--mono);font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--green);display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.kicker::before{content:'';width:34px;height:1.5px;background:var(--green)}
+.display{font-family:var(--serif);font-weight:900;line-height:.98;letter-spacing:-.01em}
+.lede{font-size:1.02rem;color:var(--ink-soft);max-width:560px;line-height:1.85}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.78rem;
+  letter-spacing:.06em;text-transform:uppercase;padding:15px 28px;border-radius:999px;
+  cursor:pointer;border:1.5px solid var(--ink);transition:.22s;text-decoration:none}
+.btn-go{background:var(--green);border-color:var(--green);color:#fff;font-weight:700}
+.btn-go:hover{background:var(--green-deep);border-color:var(--green-deep);transform:translateY(-2px)}
+.btn-line{background:transparent;color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:var(--paper)}
+.rule{border:none;border-top:1.5px solid var(--ink);margin:0}
+.tag{display:inline-block;font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;
+  border:1px solid var(--green-line);color:var(--green);background:var(--green-pale);
+  padding:4px 12px;border-radius:999px}
+
+/* ───────── HOME / HERO ───────── */
+.hero{padding:64px 0 40px}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:end}
+.hero h1{font-size:clamp(3rem,7.4vw,6.2rem)}
+.hero h1 .green{color:var(--green);font-style:italic;font-weight:600}
+.hero-note{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
+.chart-card{border:1.5px solid var(--ink);border-radius:18px;background:#fff;overflow:hidden;
+  box-shadow:8px 8px 0 var(--green-pale)}
+.chart-head{display:flex;justify-content:space-between;align-items:center;
+  padding:14px 20px;border-bottom:1.5px solid var(--ink);background:var(--paper2)}
+.chart-head span{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.chart-stamp{font-family:var(--mono);font-size:.62rem;color:var(--green);border:1.5px solid var(--green);
+  border-radius:6px;padding:2px 9px;transform:rotate(-3deg);font-weight:700}
+.chart-body{padding:22px 20px;font-family:var(--mono);font-size:.78rem;line-height:2.15;color:var(--ink-soft)}
+.chart-body b{color:var(--ink)}
+.chart-body .ok{color:var(--green);font-weight:700}
+.vitals{display:grid;grid-template-columns:repeat(4,1fr);border:1.5px solid var(--ink);
+  border-radius:18px;overflow:hidden;margin:56px 0 0;background:#fff}
+.vital{padding:30px 22px;text-align:center;border-right:1.5px solid var(--ink)}
+.vital:last-child{border-right:none}
+.vital b{font-family:var(--serif);font-weight:900;font-size:clamp(1.9rem,3.4vw,2.7rem);
+  color:var(--green);display:block;line-height:1}
+.vital span{font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--faint);display:block;margin-top:9px}
+
+/* ───────── PROCESS STRIP (home) ───────── */
+.process{padding:74px 0}
+.proc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.proc-card{border:1.5px solid var(--ink);border-radius:18px;background:#fff;padding:34px 28px;
+  position:relative;transition:.25s}
+.proc-card:hover{transform:translateY(-5px);box-shadow:8px 8px 0 var(--green-pale)}
+.proc-num{font-family:var(--serif);font-weight:900;font-size:3.4rem;color:var(--green-pale);
+  -webkit-text-stroke:1.5px var(--green);line-height:1}
+.proc-card h3{font-family:var(--serif);font-weight:700;font-size:1.5rem;margin:16px 0 10px}
+.proc-card p{font-size:.9rem;color:var(--ink-soft);line-height:1.8}
+.proc-card .go-word{position:absolute;top:26px;right:26px;font-family:var(--mono);
+  font-size:.64rem;letter-spacing:.12em;color:var(--green);opacity:0;transition:.25s}
+.proc-card:hover .go-word{opacity:1}
+
+/* ───────── BELIEF BANNER ───────── */
+.belief{background:var(--ink);color:var(--paper);padding:78px 0;position:relative;overflow:hidden}
+.belief::after{content:'GO';position:absolute;right:-40px;bottom:-70px;font-family:var(--serif);
+  font-weight:900;font-size:22rem;color:rgba(14,122,74,.16);line-height:1;pointer-events:none}
+.belief .kicker{color:#5fd39a}.belief .kicker::before{background:#5fd39a}
+.belief h2{font-family:var(--serif);font-weight:900;font-size:clamp(1.9rem,4.4vw,3.3rem);
+  line-height:1.12;max-width:820px}
+.belief h2 em{color:#5fd39a;font-style:italic;font-weight:600}
+.belief p{margin-top:22px;color:#b9c2bb;max-width:600px;font-size:.95rem;line-height:1.9}
+
+/* ───────── MARKETS (home) ───────── */
+.markets{padding:74px 0}
+.mk-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px}
+.mk-card{border:1.5px solid var(--ink);border-radius:18px;overflow:hidden;background:#fff}
+.mk-top{padding:26px 28px;border-bottom:1.5px solid var(--ink);display:flex;
+  justify-content:space-between;align-items:center;background:var(--green-pale)}
+.mk-top h3{font-family:var(--serif);font-weight:900;font-size:1.45rem}
+.mk-top span{font-size:1.7rem}
+.mk-card p{padding:24px 28px;font-size:.9rem;color:var(--ink-soft);line-height:1.85}
+
+/* ───────── VOICES ───────── */
+.voices{padding:0 0 74px}
+.v-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.v-card{border:1.5px solid var(--ink);border-radius:18px;background:#fff;padding:30px 26px;
+  display:flex;flex-direction:column;gap:18px}
+.v-quote{font-family:var(--serif);font-weight:400;font-size:1.02rem;line-height:1.7;font-style:italic}
+.v-quote::before{content:'“';color:var(--green);font-weight:900;font-size:1.6rem}
+.v-who b{display:block;font-size:.9rem}
+.v-who span{font-family:var(--mono);font-size:.68rem;color:var(--faint)}
+
+/* ───────── CLOSING CTA ───────── */
+.closing{border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);
+  background:var(--green);color:#fff;padding:80px 0;text-align:center}
+.closing h2{font-family:var(--serif);font-weight:900;font-size:clamp(2rem,5vw,3.6rem);line-height:1.05}
+.closing p{font-family:var(--mono);font-size:.8rem;margin:20px auto 34px;max-width:460px;opacity:.85}
+.closing .btn-line{border-color:#fff;color:#fff}
+.closing .btn-line:hover{background:#fff;color:var(--green)}
+.closing .btn-go{background:var(--ink);border-color:var(--ink)}
+.closing .btn-go:hover{background:#000;border-color:#000}
+
+/* ───────── SERVICE VIEWS ───────── */
+.svc-hero{padding:60px 0 44px}
+.svc-hero h1{font-size:clamp(2.4rem,5.4vw,4.4rem)}
+.svc-hero h1 .green{color:var(--green);font-style:italic;font-weight:600}
+.list-cards{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:44px 0 0}
+.l-card{border:1.5px solid var(--ink);border-radius:18px;background:#fff;padding:30px 28px}
+.l-card h3{font-family:var(--serif);font-weight:700;font-size:1.22rem;margin-bottom:10px}
+.l-card p{font-size:.88rem;color:var(--ink-soft);line-height:1.85}
+.l-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.stepline{margin:50px 0 0;border:1.5px solid var(--ink);border-radius:18px;background:#fff;overflow:hidden}
+.step-row{display:grid;grid-template-columns:88px 1fr;border-bottom:1.5px solid var(--line)}
+.step-row:last-child{border-bottom:none}
+.step-cell-num{display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-weight:900;font-size:1.5rem;color:var(--green);
+  border-right:1.5px solid var(--line);background:var(--paper2)}
+.step-cell-body{padding:24px 28px}
+.step-cell-body h3{font-family:var(--serif);font-weight:700;font-size:1.1rem;margin-bottom:6px}
+.step-cell-body p{font-size:.88rem;color:var(--ink-soft);line-height:1.8}
+
+/* ───────── ROI ───────── */
+.roi{margin-top:50px;border:1.5px solid var(--ink);border-radius:18px;overflow:hidden;
+  display:grid;grid-template-columns:1fr 1fr;background:#fff}
+.roi-in{padding:36px 32px;border-right:1.5px solid var(--ink)}
+.roi-out{padding:36px 32px;background:var(--green-pale)}
+.rf{margin-bottom:26px}
+.rf label{display:flex;justify-content:space-between;font-family:var(--mono);
+  font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px}
+.rf label b{color:var(--green)}
+input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:3px;background:var(--line);
+  border-radius:99px;outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:20px;height:20px;
+  background:var(--green);border:3px solid #fff;box-shadow:0 0 0 1.5px var(--green);
+  border-radius:50%;cursor:pointer}
+.ro{margin-bottom:26px}
+.ro b{font-family:var(--serif);font-weight:900;font-size:2.1rem;color:var(--green-deep);display:block;line-height:1.1}
+.ro span{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* ───────── FAQ ───────── */
+.faq{margin-top:50px;border:1.5px solid var(--ink);border-radius:18px;background:#fff;overflow:hidden}
+.fq{border-bottom:1.5px solid var(--line)}
+.fq:last-child{border-bottom:none}
+.fq-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;
+  padding:22px 28px;display:flex;justify-content:space-between;align-items:center;gap:16px;
+  font-family:var(--sans);font-weight:600;font-size:.95rem;color:var(--ink)}
+.fq-q:hover{color:var(--green)}
+.fq-q i{font-style:normal;font-family:var(--mono);color:var(--green);transition:.25s}
+.fq.open .fq-q i{transform:rotate(45deg)}
+.fq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.fq-a p{padding:0 28px 22px;font-size:.88rem;color:var(--ink-soft);line-height:1.85}
+.fq.open .fq-a{max-height:220px}
+
+/* ───────── PLANS ───────── */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.plan{border:1.5px solid var(--ink);border-radius:18px;background:#fff;padding:34px 28px;
+  position:relative;display:flex;flex-direction:column}
+.plan.star{box-shadow:8px 8px 0 var(--green-pale);border-color:var(--green)}
+.plan-flag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+  background:var(--green);color:#fff;font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;
+  padding:4px 14px;border-radius:999px;white-space:nowrap;font-weight:700}
+.plan h3{font-family:var(--mono);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--faint)}
+.plan .price{font-family:var(--serif);font-weight:900;font-size:2.7rem;margin:14px 0 6px;color:var(--ink)}
+.plan .price small{font-family:var(--mono);font-size:.7rem;color:var(--faint);font-weight:400}
+.plan .pd{font-size:.84rem;color:var(--ink-soft);line-height:1.75;padding-bottom:20px;
+  border-bottom:1.5px solid var(--line);margin-bottom:20px}
+.plan ul{list-style:none;flex:1;margin-bottom:26px}
+.plan li{font-size:.85rem;color:var(--ink-soft);padding:6px 0;display:flex;gap:10px;line-height:1.6}
+.plan li::before{content:'●';color:var(--green);font-size:.6rem;margin-top:6px}
+.plan .btn{justify-content:center}
+
+/* ───────── FORMS ───────── */
+.form-split{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:50px;align-items:start}
+.form-card{border:1.5px solid var(--ink);border-radius:18px;background:#fff;padding:36px 32px}
+.form-card h3{font-family:var(--serif);font-weight:700;font-size:1.3rem;margin-bottom:6px}
+.form-card>p{font-size:.85rem;color:var(--ink-soft);padding-bottom:22px;
+  border-bottom:1.5px solid var(--line);margin-bottom:24px;line-height:1.75}
+.ff{margin-bottom:16px}
+.ff label{display:block;font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--faint);margin-bottom:8px}
+.ff input,.ff select,.ff textarea{width:100%;background:var(--paper);border:1.5px solid var(--line);
+  border-radius:10px;padding:13px 16px;font-family:var(--sans);font-size:.92rem;color:var(--ink);
+  outline:none;transition:border-color .2s}
+.ff input:focus,.ff select:focus,.ff textarea:focus{border-color:var(--green)}
+.ff textarea{height:110px;resize:none}
+.ff-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.send{width:100%;background:var(--green);color:#fff;border:none;border-radius:999px;
+  padding:16px;font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;
+  font-weight:700;cursor:pointer;transition:.2s;margin-top:6px}
+.send:hover{background:var(--green-deep)}
+.side-notes{display:flex;flex-direction:column;gap:20px}
+.note{border:1.5px solid var(--ink);border-radius:18px;background:#fff;padding:24px 26px;display:flex;gap:16px}
+.note i{font-style:normal;font-size:1.2rem;margin-top:2px}
+.note b{display:block;font-size:.92rem;margin-bottom:4px}
+.note p{font-size:.82rem;color:var(--ink-soft);line-height:1.75}
+
+/* ───────── CONTACT ───────── */
+.c-rows{display:flex;flex-direction:column;gap:0;border:1.5px solid var(--ink);
+  border-radius:18px;background:#fff;overflow:hidden}
+.c-row{display:grid;grid-template-columns:200px 1fr;border-bottom:1.5px solid var(--line)}
+.c-row:last-child{border-bottom:none}
+.c-k{padding:20px 26px;font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--faint);border-right:1.5px solid var(--line);
+  background:var(--paper2);display:flex;align-items:center}
+.c-v{padding:20px 26px;font-weight:600;font-size:.95rem;display:flex;align-items:center}
+.c-v a{color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--green-line)}
+.c-v a:hover{color:var(--green)}
+@media(max-width:640px){.c-row{grid-template-columns:1fr}.c-k{border-right:none;border-bottom:1px solid var(--line)}}
+
+/* ───────── FOOTER ───────── */
+footer{border-top:1.5px solid var(--ink);padding:40px clamp(18px,4vw,48px);
+  display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
+  position:relative;z-index:1;background:var(--paper)}
+.f-logo{font-weight:700;letter-spacing:.14em;color:var(--green);font-size:.95rem}
+.f-links{display:flex;gap:4px;flex-wrap:wrap}
+.f-links button{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;
+  background:none;border:none;color:var(--ink-soft);padding:8px 12px;cursor:pointer;border-radius:999px}
+.f-links button:hover{color:var(--green);background:var(--green-pale)}
+.f-fine{font-family:var(--mono);font-size:.64rem;color:var(--faint)}
+.f-fine a{color:var(--green);text-decoration:none}
+
+/* ───────── RESPONSIVE ───────── */
+@media(max-width:920px){
+  .hero-grid,.mk-grid,.list-cards,.roi,.form-split{grid-template-columns:1fr}
+  .roi-in{border-right:none;border-bottom:1.5px solid var(--ink)}
+  .proc-grid,.v-grid,.plans{grid-template-columns:1fr}
+  .vitals{grid-template-columns:1fr 1fr}
+  .vital:nth-child(2){border-right:none}
+  .vital:nth-child(1),.vital:nth-child(2){border-bottom:1.5px solid var(--ink)}
+  .ff-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo" onclick="go('home')"><span class="go-light"></span>TRUBLSHUT</div>
+  <button class="burger" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+  <nav class="menu" id="menu">
+    <button data-v="automation" onclick="go('automation')">AI Automation</button>
+    <button data-v="strategy" onclick="go('strategy')">Strategy for Scaling</button>
+    <button data-v="contact" onclick="go('contact')">Contact</button>
+    <button data-v="start" class="cta" onclick="go('start')">Get Started</button>
+  </nav>
+</header>
+
+<!-- ════════ HOME ════════ -->
+<section class="view on" id="v-home">
+  <div class="wrap hero">
+    <div class="hero-grid">
+      <div>
+        <div class="kicker">Nigeria · Kenya — Business Automation Practice</div>
+        <h1 class="display">Your business<br>has a pulse.<br><span class="green">We read it.</span></h1>
+        <p class="lede" style="margin-top:26px">TRUBLSHUT is a business automation practice. We diagnose what slows your operation down, strategise the fix, then automate it — permanently. Green means go.</p>
+        <div class="hero-note">
+          <button class="btn btn-go" onclick="go('start')">Get Started ●</button>
+          <button class="btn btn-line" onclick="go('automation')">Explore Our Services</button>
+        </div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-head"><span>Diagnosis Chart · TB-105</span><span class="chart-stamp">CLEARED · GO</span></div>
+        <div class="chart-body">
+          Patient: <b>A growing Lagos business</b><br>
+          Symptom: <b>26 hrs/week</b> lost to manual work<br>
+          Finding: invoices, follow-ups, reports — all manual<br>
+          Prescription: <b>3 automations</b>, 2-week build<br>
+          Outcome: <span class="ok">26 hrs recovered · team refocused</span><br>
+          Status: <span class="ok">● RUNNING 24/7</span>
+        </div>
+      </div>
+    </div>
+    <div class="vitals">
+      <div class="vital"><b>105+</b><span>Businesses served</span></div>
+      <div class="vital"><b>91%</b><span>Client satisfaction</span></div>
+      <div class="vital"><b>60%</b><span>Avg. workload reduced</span></div>
+      <div class="vital"><b>2</b><span>Markets · NG &amp; KE</span></div>
+    </div>
+  </div>
+
+  <div class="wrap process">
+    <div class="kicker">How We Work — Our Internal Process</div>
+    <h2 class="display" style="font-size:clamp(2rem,4.6vw,3.4rem)">First we look.<br>Then we think. Then we build.</h2>
+    <p class="lede" style="margin-top:18px">Every engagement — whichever service you choose — runs through the same three-step discipline.</p>
+    <div class="proc-grid">
+      <div class="proc-card">
+        <div class="proc-num">01</div>
+        <h3>We Diagnose</h3>
+        <p>Like a doctor with a stethoscope, we examine how your business actually runs — and find exactly where time and money leak out.</p>
+      </div>
+      <div class="proc-card">
+        <div class="proc-num">02</div>
+        <h3>We Strategise</h3>
+        <p>No generic playbooks. We design a prioritised automation roadmap built on your diagnosis — sequenced for the fastest return first.</p>
+      </div>
+      <div class="proc-card">
+        <div class="proc-num">03</div>
+        <h3>We Automate</h3>
+        <p>We build, test and deploy intelligent systems that run your repetitive work 24/7 — then train your team to own them.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap" style="padding-bottom:74px">
+    <div class="kicker">What We Offer</div>
+    <h2 class="display" style="font-size:clamp(2rem,4.6vw,3.4rem)">Two services.<br>Automation &amp; strategy.</h2>
+    <div class="mk-grid" style="margin-top:44px">
+      <div class="mk-card" style="cursor:pointer" onclick="go('automation')">
+        <div class="mk-top"><h3>AI Automation</h3><span>⚙️</span></div>
+        <p>For business operations. We replace repetitive manual work — invoices, follow-ups, onboarding, reporting — with intelligent systems that run 24/7. <b style="color:var(--green)">Explore →</b></p>
+      </div>
+      <div class="mk-card" style="cursor:pointer" onclick="go('strategy')">
+        <div class="mk-top"><h3>Strategy for Scaling</h3><span>🧭</span></div>
+        <p>For businesses ready to grow. An AI-powered scaling roadmap — what to systemise, what to automate, in what order — so growth compounds. <b style="color:var(--green)">Explore →</b></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="belief">
+    <div class="wrap">
+      <div class="kicker">Why Green</div>
+      <h2>Green is the traffic light that says <em>go</em>. Green is new life. Green is the moment a problem finally has <em>a solution.</em></h2>
+      <p>That's what TRUBLSHUT stands for. We don't replace your people — we take the repetitive weight off them, so your business moves when others stall. Smarter roles. Not smaller teams.</p>
+    </div>
+  </div>
+
+  <div class="wrap markets">
+    <div class="kicker">Where We Practice</div>
+    <h2 class="display" style="font-size:clamp(2rem,4.6vw,3.4rem)">Two markets.<br>One standard of care.</h2>
+    <div class="mk-grid">
+      <div class="mk-card">
+        <div class="mk-top"><h3>Lagos, Nigeria</h3><span>🇳🇬</span></div>
+        <p>Africa's commercial heartbeat. We help Lagos businesses build the operational backbone to compete anywhere — automation tuned to how business really works here.</p>
+      </div>
+      <div class="mk-card">
+        <div class="mk-top"><h3>Nairobi, Kenya</h3><span>🇰🇪</span></div>
+        <p>East Africa's innovation capital. We partner with Nairobi businesses ready to leapfrog slow, manual processes with intelligent systems that simply run.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap voices">
+    <div class="kicker">From the Chart Notes</div>
+    <h2 class="display" style="font-size:clamp(2rem,4.6vw,3.4rem)">What clients say<br>after the green light.</h2>
+    <div class="v-grid">
+      <div class="v-card">
+        <p class="v-quote">Three full days of manual data entry — gone every month. The invoice automation paid for itself inside the first week.</p>
+        <div class="v-who"><b>Sarah M.</b><span>Operations Lead · Logistics, Lagos</span></div>
+      </div>
+      <div class="v-card">
+        <p class="v-quote">Onboarding used to eat six hours per new hire. Now it runs itself. My team finally does the work they were hired for.</p>
+        <div class="v-who"><b>James K.</b><span>Head of Ops · Services firm, Lagos</span></div>
+      </div>
+      <div class="v-card">
+        <p class="v-quote">From diagnosis to live automation in four days. The projection they gave us was accurate — we hit it in eight weeks.</p>
+        <div class="v-who"><b>Priya L.</b><span>Founder · Digital agency, Nairobi</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="closing">
+    <div class="wrap">
+      <h2>Ready for the green light?</h2>
+      <p>Book a free 30-minute diagnosis. We'll show you exactly where your business is losing time — before you spend a shilling or a naira.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <button class="btn btn-go" onclick="go('start')">Get Started ●</button>
+        <button class="btn btn-line" onclick="go('contact')">Talk to Us First</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ SERVICE: STRATEGY FOR SCALING ════════ -->
+<section class="view" id="v-strategy">
+  <div class="wrap svc-hero">
+    <div class="kicker">Service 02 · Strategy for Scaling</div>
+    <h1 class="display">Growth shouldn't be<br>a <span class="green">guessing game.</span></h1>
+    <p class="lede" style="margin-top:24px">We build your business an AI-powered scaling roadmap — where to grow, what to systemise, and in what order — so every move compounds instead of stalling.</p>
+  </div>
+  <div class="wrap" style="padding-bottom:70px">
+    <div class="kicker">What the Roadmap Covers</div>
+    <div class="stepline">
+      <div class="step-row"><div class="step-cell-num">a</div><div class="step-cell-body"><h3>Growth diagnosis</h3><p>We examine how the business earns, operates and loses momentum today — capacity, bottlenecks, and where growth breaks things.</p></div></div>
+      <div class="step-row"><div class="step-cell-num">b</div><div class="step-cell-body"><h3>Scaling roadmap</h3><p>A sequenced plan for the next 6–18 months: what to systemise, what to automate, what to hire for — prioritised by return.</p></div></div>
+      <div class="step-row"><div class="step-cell-num">c</div><div class="step-cell-body"><h3>AI opportunity map</h3><p>Exactly where AI creates leverage in your operation — customer response, documents, reporting, decisions — with realistic costs.</p></div></div>
+      <div class="step-row"><div class="step-cell-num">d</div><div class="step-cell-body"><h3>The scoreboard</h3><p>Measurable targets shipped with every roadmap — hours recovered, response times, capacity gained — reviewed with you monthly.</p></div></div>
+    </div>
+
+    <div class="kicker" style="margin-top:56px">Model Your Recovery</div>
+    <h2 class="display" style="font-size:clamp(1.8rem,4vw,2.8rem)">What could you get back?</h2>
+    <div class="roi">
+      <div class="roi-in">
+        <div class="rf"><label>Team size <b id="vt">10 people</b></label><input type="range" min="2" max="100" value="10" id="rt" oninput="roi()"></div>
+        <div class="rf"><label>Avg. annual salary (USD) <b id="vs">$8,000</b></label><input type="range" min="2000" max="60000" step="1000" value="8000" id="rs" oninput="roi()"></div>
+        <div class="rf"><label>Time on manual tasks <b id="vm">35%</b></label><input type="range" min="5" max="80" value="35" id="rm" oninput="roi()"></div>
+        <div class="rf"><label>Automation coverage <b id="vc">70%</b></label><input type="range" min="20" max="90" value="70" id="rc" oninput="roi()"></div>
+      </div>
+      <div class="roi-out">
+        <div class="ro"><b id="os">$19,600</b><span>Annual cost recovered</span></div>
+        <div class="ro"><b id="oh">5,096 hrs</b><span>Hours returned per year</span></div>
+        <div class="ro"><b id="of">2.5 FTE</b><span>Full-time capacity freed</span></div>
+        <button class="btn btn-go" onclick="go('start')" style="margin-top:6px">Get This Back ●</button>
+      </div>
+    </div>
+
+    <div style="margin-top:44px;display:flex;gap:14px;flex-wrap:wrap">
+      <button class="btn btn-line" onclick="go('automation')">See AI Automation →</button>
+      <button class="btn btn-go" onclick="go('start')">Get Started ●</button>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ SERVICE: AI AUTOMATION ════════ -->
+<section class="view" id="v-automation">
+  <div class="wrap svc-hero">
+    <div class="kicker">Service 01 · AI Automation for Business Operations</div>
+    <h1 class="display">Your operations,<br><span class="green">running themselves.</span></h1>
+    <p class="lede" style="margin-top:24px">We build, test and deploy intelligent automations that run your business ops 24/7 — using UiPath, n8n, Power Automate and modern AI — then hand your team the keys.</p>
+  </div>
+  <div class="wrap" style="padding-bottom:70px">
+    <div class="kicker">What We Build</div>
+    <div class="list-cards">
+      <div class="l-card"><h3>📬 Inbox &amp; Follow-up Systems</h3><p>Email triage, instant lead responses, escalation routing. Every enquiry answered in under a minute — even at 2am.</p>
+        <div class="l-tags"><span class="tag">n8n</span><span class="tag">AI models</span><span class="tag">Outlook / Gmail</span></div></div>
+      <div class="l-card"><h3>📄 Document Processing</h3><p>Invoices, receipts and contracts extracted, validated and filed automatically — from attachment to accounting system in seconds.</p>
+        <div class="l-tags"><span class="tag">UiPath</span><span class="tag">Document AI</span><span class="tag">Accounting sync</span></div></div>
+      <div class="l-card"><h3>👥 Onboarding Flows</h3><p>New staff or new clients — the whole sequence runs itself: forms, access, welcome packs, task assignment, tracked end to end.</p>
+        <div class="l-tags"><span class="tag">Power Automate</span><span class="tag">SharePoint</span><span class="tag">Teams</span></div></div>
+      <div class="l-card"><h3>📊 Self-Writing Reports</h3><p>KPI dashboards and weekly summaries generated and delivered automatically. Monday mornings without the data scramble.</p>
+        <div class="l-tags"><span class="tag">Power BI</span><span class="tag">Data pipelines</span><span class="tag">Scheduled runs</span></div></div>
+    </div>
+    <div class="stepline">
+      <div class="step-row"><div class="step-cell-num">a</div><div class="step-cell-body"><h3>Build in short sprints</h3><p>First automations live within two weeks. Tested against your real data before touching your live environment.</p></div></div>
+      <div class="step-row"><div class="step-cell-num">b</div><div class="step-cell-body"><h3>Document everything</h3><p>Every system ships with a plain-language manual. If it can't be understood by someone who didn't build it, it isn't finished.</p></div></div>
+      <div class="step-row"><div class="step-cell-num">c</div><div class="step-cell-body"><h3>Train &amp; hand over</h3><p>Your team learns to run and extend the automations. You own everything — the workflows, the docs, the keys.</p></div></div>
+      <div class="step-row"><div class="step-cell-num">d</div><div class="step-cell-body"><h3>Monitor &amp; grow</h3><p>Post-launch support on every plan. Monthly reviews track recovered hours and queue the next highest-value build.</p></div></div>
+    </div>
+
+    <div class="kicker" style="margin-top:56px">Honest Answers</div>
+    <div class="faq">
+      <div class="fq"><button class="fq-q" onclick="fq(this)">Will automation replace my employees? <i>+</i></button>
+        <div class="fq-a"><p>No — that's the opposite of our philosophy. We take the jobs out of the employees, not the employees out of the jobs. Repetitive work goes to machines; judgement, relationships and growth stay with your people.</p></div></div>
+      <div class="fq"><button class="fq-q" onclick="fq(this)">How fast do we see results? <i>+</i></button>
+        <div class="fq-a"><p>Most clients feel the difference within the first two weeks of deployment. Payback typically lands between week two and week six depending on the build.</p></div></div>
+      <div class="fq"><button class="fq-q" onclick="fq(this)">Do we have to change our tools? <i>+</i></button>
+        <div class="fq-a"><p>Rarely. We design around what you already use — Microsoft 365, Google Workspace, your accounting package, even WhatsApp-heavy workflows.</p></div></div>
+      <div class="fq"><button class="fq-q" onclick="fq(this)">What makes TRUBLSHUT different? <i>+</i></button>
+        <div class="fq-a"><p>Diagnosis before prescription. Most agencies sell you a tool and leave. We examine first, strategise second, build third — and everything we ship is documented and owned by you.</p></div></div>
+    </div>
+
+    <div style="margin-top:44px;display:flex;gap:14px;flex-wrap:wrap">
+      <button class="btn btn-line" onclick="go('strategy')">See Strategy for Scaling →</button>
+      <button class="btn btn-go" onclick="go('start')">Get Started ●</button>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ GET STARTED ════════ -->
+<section class="view" id="v-start">
+  <div class="wrap svc-hero" style="text-align:center">
+    <div class="kicker" style="justify-content:center">Get Started</div>
+    <h1 class="display">Pick a plan.<br>Get the <span class="green">green light.</span></h1>
+    <p class="lede" style="margin:24px auto 0">Every plan starts with a free diagnosis. No hidden fees, no lock-in — you own everything we build.</p>
+  </div>
+  <div class="wrap" style="padding-bottom:70px">
+    <div class="plans">
+      <div class="plan">
+        <h3>Starter</h3>
+        <div class="price">$480 <small>/ project</small></div>
+        <p class="pd">One automation, properly built. The fastest way to prove what this can do for your business.</p>
+        <ul>
+          <li>1 automation use case</li>
+          <li>Free diagnosis included</li>
+          <li>2-week deployment</li>
+          <li>1 team training session</li>
+          <li>30-day post-launch support</li>
+          <li>Full documentation — you own it</li>
+        </ul>
+        <button class="btn btn-line" onclick="pick('Starter')">Choose Starter</button>
+      </div>
+      <div class="plan star">
+        <div class="plan-flag">MOST CHOSEN</div>
+        <h3>Growth</h3>
+        <div class="price">$1,100 <small>/ project</small></div>
+        <p class="pd">A full automation programme for one department — diagnosis, strategy roadmap and up to five builds.</p>
+        <ul>
+          <li>Up to 5 automation use cases</li>
+          <li>Full diagnosis + strategy roadmap</li>
+          <li>AI-powered document &amp; email systems</li>
+          <li>4-week sprint delivery</li>
+          <li>3 training sessions</li>
+          <li>90-day support + monthly review</li>
+        </ul>
+        <button class="btn btn-go" onclick="pick('Growth')" style="justify-content:center">Choose Growth ●</button>
+      </div>
+      <div class="plan">
+        <h3>Enterprise</h3>
+        <div class="price">Custom</div>
+        <p class="pd">Whole-business transformation with a dedicated engineer and an ongoing optimisation retainer.</p>
+        <ul>
+          <li>Unlimited use cases</li>
+          <li>Dedicated automation engineer</li>
+          <li>Custom AI integrations</li>
+          <li>Ongoing retainer &amp; SLA</li>
+          <li>Priority support</li>
+          <li>Quarterly strategy reviews</li>
+        </ul>
+        <button class="btn btn-line" onclick="go('contact')">Talk to Us</button>
+      </div>
+    </div>
+
+    <div id="register" class="form-split">
+      <div class="form-card">
+        <h3>Register your interest</h3>
+        <p>Tell us about the business. We reply within 24 hours to book your free diagnosis.</p>
+        <div class="ff-row">
+          <div class="ff"><label>First name</label><input type="text" id="g1" placeholder="Ada"></div>
+          <div class="ff"><label>Last name</label><input type="text" id="g2" placeholder="Okafor"></div>
+        </div>
+        <div class="ff"><label>Business email</label><input type="email" id="g3" placeholder="you@yourcompany.com"></div>
+        <div class="ff"><label>Company name</label><input type="text" id="g4" placeholder="Your Company Ltd"></div>
+        <div class="ff"><label>Market</label>
+          <select id="g5"><option value="">Select…</option><option>Nigeria</option><option>Kenya</option><option>Other</option></select></div>
+        <div class="ff"><label>Plan</label>
+          <select id="g6"><option>Starter — $480</option><option>Growth — $1,100</option><option>Enterprise — Custom</option></select></div>
+        <div class="ff"><label>Your biggest manual headache</label><textarea id="g7" placeholder="e.g. We lose about 3 hours a day chasing invoices and re-typing data…"></textarea></div>
+        <button class="send" id="gsend" onclick="submitForm('g')">Submit &amp; Book Free Diagnosis ●</button>
+      </div>
+      <div class="side-notes">
+        <div class="note"><i>🩺</i><div><b>Free diagnosis first</b><p>Every engagement starts with a free 30-minute examination. You see the findings before spending anything.</p></div></div>
+        <div class="note"><i>⚡</i><div><b>Live in two weeks</b><p>Starter builds deploy within 14 days — tested on your real data before going live.</p></div></div>
+        <div class="note"><i>🔓</i><div><b>You own everything</b><p>The workflows, the documentation, the credentials. No lock-in, no hostage systems.</p></div></div>
+        <div class="note"><i>🌍</i><div><b>Built for NG &amp; KE</b><p>We understand how business actually runs in Lagos and Nairobi — and we build for that reality.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ CONTACT ════════ -->
+<section class="view" id="v-contact">
+  <div class="wrap svc-hero">
+    <div class="kicker">Contact</div>
+    <h1 class="display">Talk to us.<br><span class="green">We listen first.</span></h1>
+    <p class="lede" style="margin-top:24px">A project in mind, or just curious what's possible? Either way — that conversation is free.</p>
+  </div>
+  <div class="wrap" style="padding-bottom:70px">
+    <div class="form-split">
+      <div>
+        <div class="c-rows">
+          <div class="c-row"><div class="c-k">Email</div><div class="c-v"><a href="mailto:hello@trublshut.com">hello@trublshut.com</a></div></div>
+          <div class="c-row"><div class="c-k">Call</div><div class="c-v"><a href="tel:0117513755">0117 513 755</a></div></div>
+          <div class="c-row"><div class="c-k">WhatsApp</div><div class="c-v"><a href="https://wa.me/0117513755" target="_blank" rel="noopener">Message us on WhatsApp</a></div></div>
+          <div class="c-row"><div class="c-k">LinkedIn</div><div class="c-v"><a href="https://linkedin.com/company/trublshut" target="_blank" rel="noopener">@trublshut</a></div></div>
+          <div class="c-row"><div class="c-k">Response</div><div class="c-v" style="font-weight:400;font-size:.88rem;color:var(--ink-soft)">Within 24 hours on business days. WhatsApp is fastest.</div></div>
+          <div class="c-row"><div class="c-k">Markets</div><div class="c-v" style="gap:10px">🇳🇬 Nigeria &nbsp; 🇰🇪 Kenya</div></div>
+        </div>
+      </div>
+      <div class="form-card">
+        <h3>Send a message</h3>
+        <p>Tell us a little about the business and what's slowing it down. We reply with ideas — not a sales pitch.</p>
+        <div class="ff-row">
+          <div class="ff"><label>First name</label><input type="text" id="c1" placeholder="Wanjiru"></div>
+          <div class="ff"><label>Last name</label><input type="text" id="c2" placeholder="Kamau"></div>
+        </div>
+        <div class="ff"><label>Email</label><input type="email" id="c3" placeholder="you@yourcompany.com"></div>
+        <div class="ff"><label>Short message</label><textarea id="c4" placeholder="e.g. We're a 12-person distributor in Nairobi. Reporting eats 2 hours daily and we want it gone…"></textarea></div>
+        <button class="send" id="csend" onclick="submitForm('c')">Send Message ●</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo">● TRUBLSHUT</div>
+  <div class="f-links">
+    <button onclick="go('home')">Home</button>
+    <button onclick="go('automation')">AI Automation</button>
+    <button onclick="go('strategy')">Strategy for Scaling</button>
+    <button onclick="go('contact')">Contact</button>
+    <button onclick="go('start')">Get Started</button>
+  </div>
+  <div class="f-fine">© 2026 TRUBLSHUT · Nigeria &amp; Kenya · <a href="https://linkedin.com/company/trublshut" target="_blank" rel="noopener">LinkedIn</a></div>
+</footer>
+
+<script>
+/* view switching — buttons load sections, no scrolling between them */
+function go(id){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('on'));
+  var el=document.getElementById('v-'+id);
+  if(el){el.classList.add('on')}
+  document.querySelectorAll('.menu button').forEach(b=>b.classList.remove('here'));
+  var nb=document.querySelector('.menu button[data-v="'+id+'"]');
+  if(nb){nb.classList.add('here')}
+  document.getElementById('menu').classList.remove('open');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* plan pick → jump to register form with plan preselected */
+function pick(plan){
+  var sel=document.getElementById('g6');
+  for(var i=0;i<sel.options.length;i++){
+    if(sel.options[i].text.indexOf(plan)===0){sel.selectedIndex=i;break}
+  }
+  document.getElementById('register').scrollIntoView({behavior:'smooth'});
+}
+
+/* ROI calculator */
+function roi(){
+  var t=+document.getElementById('rt').value,
+      s=+document.getElementById('rs').value,
+      m=+document.getElementById('rm').value/100,
+      c=+document.getElementById('rc').value/100;
+  var save=Math.round(t*s*m*c),
+      hrs=Math.round(t*2080*m*c),
+      fte=(hrs/2080).toFixed(1);
+  document.getElementById('vt').textContent=t+' people';
+  document.getElementById('vs').textContent='$'+s.toLocaleString();
+  document.getElementById('vm').textContent=Math.round(m*100)+'%';
+  document.getElementById('vc').textContent=Math.round(c*100)+'%';
+  document.getElementById('os').textContent='$'+save.toLocaleString();
+  document.getElementById('oh').textContent=hrs.toLocaleString()+' hrs';
+  document.getElementById('of').textContent=fte+' FTE';
+}
+
+/* FAQ accordion */
+function fq(btn){btn.parentElement.classList.toggle('open')}
+
+/* forms: confirm + clear fields (fixes the “details still there” issue) */
+function submitForm(prefix){
+  var ids=prefix==='g'?['g1','g2','g3','g4','g5','g6','g7']:['c1','c2','c3','c4'];
+  ids.forEach(function(id){
+    var el=document.getElementById(id);
+    if(el){ if(el.tagName==='SELECT'){el.selectedIndex=0}else{el.value=''} }
+  });
+  var btn=document.getElementById(prefix+'send');
+  var old=btn.textContent;
+  btn.textContent='✓ Received — we reply within 24 hrs';
+  btn.style.background='var(--green-deep)';
+  setTimeout(function(){btn.textContent=old;btn.style.background=''},5000);
+}
+
+roi();
+</script>
+</body>
+</html>
