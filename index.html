@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trublshut | Technology products for African industries</title>
+<meta name="description" content="Trublshut is an African-owned technology company building products that solve operational problems for African industries. Current products: Nota54 for logistics and supply chain, and AYVO for enquiry response.">
+<meta name="theme-color" content="#08813F">
+<link rel="canonical" href="https://trublshut.com/">
+<link rel="icon" href="data:,">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Trublshut">
+<meta property="og:title" content="Trublshut | Technology products for African industries">
+<meta property="og:description" content="An African-owned technology company building products that solve operational problems. Nota54 for logistics and supply chain. AYVO for enquiry response.">
+<meta property="og:url" content="https://trublshut.com/">
+<meta property="og:image" content="https://trublshut.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preload" href="assets/fonts/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/hanken-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+<noscript><style>.view[hidden]{display:block !important}.menu-btn{display:none}</style></noscript>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Trublshut","url":"https://trublshut.com/","email":"hello@trublshut.com","description":"An African-owned technology company building products that solve operational problems for African industries.","sameAs":["https://www.linkedin.com/company/trublshut"]}
+</script>
+
+<style>
+@font-face{font-family:"Bricolage Grotesque";src:url("assets/fonts/bricolage-grotesque-latin-wght-normal.woff2") format("woff2");font-weight:200 800;font-style:normal;font-display:swap}
+@font-face{font-family:"Hanken Grotesk";src:url("assets/fonts/hanken-grotesk-latin-wght-normal.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body,h1,h2,h3,p,ul,ol,dl,dd,figure{margin:0}
+ul,ol{padding:0;list-style:none}
+img,video{display:block;max-width:100%}
+button,input,select,textarea{font:inherit;color:inherit}
+
+:root{
+  /* parent company */
+  --chalk:#F3F6F1;
+  --white:#FFFFFF;
+  --ink:#10201A;
+  --ink-2:#42514A;
+  --line:#D3DAD2;
+  --go:#08813F;          /* traffic green: wordmark, actions, focus */
+  --go-deep:#066A34;
+  --go-bright:#3FD07F;   /* the same green, for dark surfaces */
+  --foot:#0D1812;
+  /* Nota54 room, taken from the Nota54 logo and explainer */
+  --n-bg:#F1F6FB;
+  --n-ink:#0C2142;
+  --n-ink-2:#415570;
+  --n-line:#D3DFEC;
+  --n-cyan:#13B0F0;
+  --n-cyan-deep:#0A7FB5;
+  /* AYVO room, taken from the AYVO logo */
+  --a-bg:#0A0A0B;
+  --a-ink:#F4ECDD;
+  --a-ink-2:#BDB6AA;
+  --a-line:#2E2D30;
+  --a-orange:#FF8A3D;
+  --a-purple:#B476F0;
+
+  --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --text:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
+  --wordmark-case:none;  /* set to uppercase to show TRUBLSHUT in capitals */
+
+  --max:1240px;
+  --gutter:clamp(20px,4vw,48px);
+  --section:clamp(64px,9vw,120px);
+  --hdr:72px;
+
+  --hdr-bg:rgba(243,246,241,.94);
+  --hdr-fg:var(--ink);
+  --hdr-line:var(--line);
+  --hdr-mark:var(--go);
+}
+
+html{scroll-padding-top:calc(var(--hdr) + 16px)}
+body{background:var(--chalk);color:var(--ink);font-family:var(--text);font-size:1.0625rem;line-height:1.65;font-weight:400;min-height:100vh;display:flex;flex-direction:column;text-rendering:optimizeLegibility}
+main{flex:1;outline:none}
+.wrap{width:100%;max-width:calc(var(--max) + var(--gutter)*2);margin-inline:auto;padding-inline:var(--gutter)}
+
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.04;letter-spacing:-.028em;text-wrap:balance}
+h1{font-size:clamp(2.3rem,5.2vw,4.4rem)}
+h2{font-size:clamp(1.75rem,3.4vw,2.7rem)}
+h3{font-size:clamp(1.25rem,1.8vw,1.55rem);letter-spacing:-.018em;line-height:1.15}
+p{max-width:62ch}
+.lede{font-size:clamp(1.1rem,1.5vw,1.3rem);line-height:1.6;color:var(--ink-2);max-width:46ch}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--go);outline-offset:3px;border-radius:2px}
+h1[tabindex="-1"]:focus,main:focus{outline:none}
+
+.skip{position:absolute;left:12px;top:-60px;z-index:200;background:var(--ink);color:#fff;padding:10px 16px;border-radius:4px;text-decoration:none}
+.skip:focus{top:12px}
+
+/* header ----------------------------------------------------------- */
+.site-header{position:sticky;top:0;z-index:100;background:var(--hdr-bg);color:var(--hdr-fg);border-bottom:1px solid var(--hdr-line);backdrop-filter:saturate(1.2) blur(10px);transition:background-color .25s,color .25s}
+.bar{height:var(--hdr);display:flex;align-items:center;justify-content:space-between;gap:24px;max-width:calc(var(--max) + var(--gutter)*2);margin-inline:auto;padding-inline:var(--gutter)}
+.wordmark{font-family:var(--display);font-weight:800;font-size:1.65rem;letter-spacing:-.03em;color:var(--hdr-mark);text-decoration:none;text-transform:var(--wordmark-case);line-height:1}
+.site-nav{display:flex;align-items:center;gap:clamp(14px,2.4vw,34px)}
+.site-nav ul{display:flex;align-items:center;gap:clamp(14px,2.2vw,30px)}
+.site-nav li a{display:inline-block;padding:8px 0;font-weight:500;font-size:.98rem;text-decoration:none;border-bottom:2px solid transparent}
+.site-nav li a:hover{border-bottom-color:currentColor}
+.site-nav li a[aria-current="page"]{border-bottom-color:var(--hdr-mark);font-weight:600}
+.menu-btn{display:none;background:none;border:1.5px solid currentColor;border-radius:4px;padding:8px 14px;font-weight:600;cursor:pointer}
+
+/* buttons ---------------------------------------------------------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 24px;border:2px solid var(--go);border-radius:4px;background:var(--go);color:#fff;font-family:var(--text);font-weight:700;font-size:1rem;line-height:1.2;text-decoration:none;cursor:pointer;transition:background-color .18s,border-color .18s,color .18s}
+.btn:hover{background:var(--go-deep);border-color:var(--go-deep)}
+.btn--line{background:transparent;color:inherit;border-color:currentColor}
+.btn--line:hover{background:currentColor;border-color:currentColor}
+.btn--white{background:#fff;border-color:#fff;color:var(--go-deep)}
+.btn--white:hover{background:var(--chalk);border-color:var(--chalk)}
+.btn--ghost{background:transparent;border-color:rgba(255,255,255,.7);color:#fff}
+.btn--ghost:hover{background:#fff;border-color:#fff;color:var(--go-deep)}
+.btn-sm{min-height:42px;padding:9px 18px;font-size:.95rem}
+.textlink{font-weight:600;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px;text-decoration-color:var(--go)}
+.textlink:hover{text-decoration-color:currentColor}
+
+/* views ------------------------------------------------------------ */
+.view{animation:viewIn .28s ease-out both}
+.view[hidden]{display:none}
+@keyframes viewIn{from{opacity:0}to{opacity:1}}
+.section{padding-block:var(--section)}
+.page-head{padding-top:clamp(44px,6.5vw,92px);padding-bottom:clamp(36px,5vw,64px)}
+.page-head h1{max-width:19ch}
+.page-head .lede{margin-top:clamp(18px,2.4vw,28px)}
+.rule{border:0;border-top:1px solid var(--line);margin:0}
+
+/* home: hero ------------------------------------------------------- */
+.hero{padding-top:clamp(40px,6vw,88px);padding-bottom:clamp(40px,5.5vw,72px)}
+.hero h1{font-size:clamp(2.6rem,7vw,6.2rem);font-weight:700;line-height:.95;letter-spacing:-.045em;max-width:15.5em}
+.hero-sub{margin-top:clamp(28px,4vw,52px);display:grid;grid-template-columns:minmax(0,40rem) auto;gap:28px clamp(32px,6vw,96px);align-items:end}
+.hero-sub .lede{max-width:none}
+.actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px}
+
+/* home: the two product doors -------------------------------------- */
+.doors{display:grid;grid-template-columns:1fr 1fr}
+.door{display:flex;flex-direction:column;gap:22px;min-height:clamp(340px,34vw,440px);padding:clamp(28px,4vw,56px) var(--gutter);text-decoration:none;position:relative}
+.door-logo{height:clamp(54px,6vw,84px);width:auto}
+.door-logo img{height:100%;width:auto}
+.door h2{font-size:clamp(1.35rem,2.1vw,1.85rem);letter-spacing:-.02em;line-height:1.15}
+.door p{font-size:1.05rem;max-width:36ch}
+.door .go{margin-top:auto;font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px}
+.door--nota{background:var(--n-bg);color:var(--n-ink);padding-left:max(var(--gutter),calc((100vw - var(--max))/2))}
+.door--nota p{color:var(--n-ink-2)}
+.door--nota:hover,.door--nota:focus-visible{background:#E6EFF8}
+.door--ayvo{background:var(--a-bg);color:var(--a-ink);padding-right:max(var(--gutter),calc((100vw - var(--max))/2))}
+.door--ayvo p{color:var(--a-ink-2)}
+.door--ayvo:hover,.door--ayvo:focus-visible{background:#151417}
+.door--ayvo .door-logo{height:clamp(62px,7vw,96px)}
+.door--ayvo .go{text-decoration-color:var(--a-orange)}
+.door--nota .go{text-decoration-color:var(--n-cyan)}
+.door:focus-visible{outline-offset:-6px}
+
+/* home: statement + index ------------------------------------------ */
+.split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(28px,6vw,96px);align-items:start}
+.split .body p+p{margin-top:1.1em}
+.body p{color:var(--ink-2)}
+.index{border-top:1px solid var(--ink)}
+.index a{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:12px clamp(28px,6vw,96px);align-items:baseline;padding:clamp(20px,2.6vw,30px) 0;border-bottom:1px solid var(--line);text-decoration:none}
+.index a:hover .ix-name{color:var(--go)}
+.index a:hover .ix-name{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:8px}
+.ix-name{font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,2.8vw,2.3rem);letter-spacing:-.03em;line-height:1.1}
+.ix-desc{color:var(--ink-2)}
+
+/* closing band ----------------------------------------------------- */
+.band{background:var(--go);color:#fff}
+.band .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:28px clamp(28px,6vw,96px);align-items:end;padding-block:clamp(56px,8vw,104px)}
+.band h2{font-size:clamp(1.9rem,4vw,3.3rem);max-width:20ch}
+.band p{color:#fff;margin-top:16px}
+.band .actions{justify-content:flex-start}
+.band-side p{margin:0 0 22px}
+
+/* about ------------------------------------------------------------ */
+.principles{border-top:1px solid var(--ink)}
+.principle{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:10px clamp(28px,6vw,96px);padding:clamp(24px,3vw,36px) 0;border-bottom:1px solid var(--line)}
+.principle p{color:var(--ink-2)}
+
+/* nota54 room ------------------------------------------------------ */
+.room-nota{background:var(--n-bg);color:var(--n-ink)}
+.room-nota .lede,.room-nota .body p{color:var(--n-ink-2)}
+.room-nota .rule{border-color:var(--n-line)}
+.room-nota :focus-visible{outline-color:var(--n-ink)}
+.product-head{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,5vw,80px);align-items:end}
+.product-head .logo-lg{height:clamp(64px,8vw,104px);width:auto;margin-bottom:clamp(24px,3.4vw,40px)}
+.player{background:#fff;border:1px solid var(--n-line);border-radius:6px;overflow:hidden}
+.player video{width:100%;height:auto;aspect-ratio:16/9;background:#fff}
+.caption{margin-top:12px;font-size:.95rem;color:var(--n-ink-2);max-width:none}
+.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,3.4vw,48px) clamp(24px,3vw,44px);counter-reset:step}
+.flow li{border-top:2px solid var(--n-ink);padding-top:18px}
+.flow .n{display:block;font-family:var(--display);font-weight:300;font-size:clamp(2.6rem,4.2vw,3.6rem);line-height:1;letter-spacing:-.04em;color:var(--n-cyan-deep);margin-bottom:14px}
+.flow h3{margin-bottom:8px}
+.flow p{color:var(--n-ink-2);font-size:1rem}
+.note-row{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:12px clamp(28px,6vw,96px);padding-top:clamp(28px,4vw,44px);border-top:1px solid var(--n-line)}
+.note-row p{color:var(--n-ink-2)}
+
+/* ayvo room -------------------------------------------------------- */
+.room-ayvo{background:var(--a-bg);color:var(--a-ink)}
+.room-ayvo .lede,.room-ayvo .body p{color:var(--a-ink-2)}
+.room-ayvo :focus-visible{outline-color:var(--a-orange)}
+.room-ayvo .logo-lg{height:clamp(72px,9vw,120px);width:auto;margin-bottom:clamp(24px,3.4vw,40px)}
+.parts{border-top:1px solid var(--a-ink-2)}
+.part{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:12px clamp(28px,6vw,96px);padding:clamp(24px,3vw,36px) 0;border-bottom:1px solid var(--a-line)}
+.part p,.part li{color:var(--a-ink-2)}
+.part ul{margin-top:14px;display:grid;gap:6px}
+.part li{padding-left:18px;position:relative}
+.part li::before{content:"";position:absolute;left:0;top:.72em;width:8px;height:2px;background:var(--a-orange)}
+.pipeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:p}
+.pipeline li{position:relative;padding:34px 24px 0 0}
+.pipeline li::before{content:"";position:absolute;left:0;top:0;width:14px;height:14px;border-radius:50%;background:var(--a-orange)}
+.pipeline li:nth-child(2)::before{background:var(--a-purple)}
+.pipeline li:nth-child(3)::before{background:var(--a-orange)}
+.pipeline li:nth-child(4)::before{background:var(--a-purple)}
+.pipeline li::after{content:"";position:absolute;left:22px;right:8px;top:6px;height:2px;background:var(--a-line)}
+.pipeline li:last-child::after{display:none}
+.pipeline .n{display:block;font-family:var(--display);font-weight:300;font-size:2.6rem;line-height:1;letter-spacing:-.04em;color:var(--a-orange);margin-bottom:12px}
+.pipeline li:nth-child(even) .n{color:var(--a-purple)}
+.pipeline h3{font-size:1.2rem;margin-bottom:8px;color:var(--a-ink)}
+.pipeline p{color:var(--a-ink-2);font-size:1rem}
+.fine{margin-top:clamp(24px,3vw,36px);font-size:.95rem;color:var(--a-ink-2);max-width:none}
+.room-ayvo .btn{background:var(--go-bright);border-color:var(--go-bright);color:#06190E}
+.room-ayvo .btn:hover{background:#6BE2A1;border-color:#6BE2A1}
+
+/* industries ------------------------------------------------------- */
+.industry{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:14px clamp(28px,6vw,96px);padding:clamp(32px,4.4vw,56px) 0;border-top:1px solid var(--line)}
+.industry:first-of-type{border-top:1px solid var(--ink)}
+.industry p{color:var(--ink-2)}
+.industry .textlink{display:inline-block;margin-top:20px}
+
+/* team ------------------------------------------------------------- */
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(36px,5vw,64px) clamp(24px,4vw,56px)}
+.person{border-top:1px solid var(--ink);padding-top:22px}
+.avatar{width:clamp(132px,13vw,176px);aspect-ratio:1;border-radius:50%;overflow:hidden;background:#DCE5DC;margin-bottom:22px}
+.avatar img{width:100%;height:100%;object-fit:cover;object-position:center 22%}
+.avatar .mono{display:grid;place-items:center;width:100%;height:100%;font-family:var(--display);font-weight:700;font-size:2.4rem;letter-spacing:-.02em;color:var(--go-deep)}
+.person h2{font-size:1.4rem;letter-spacing:-.018em;line-height:1.15;margin-bottom:4px}
+.person p{color:var(--ink-2);font-size:1rem}
+
+/* contact ---------------------------------------------------------- */
+.contact-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(36px,6vw,96px);align-items:start}
+.details{border-top:1px solid var(--ink)}
+.details div{display:grid;grid-template-columns:7.5rem 1fr;gap:12px;padding:18px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.details dt{color:var(--ink-2);font-size:.98rem}
+.details dd{font-weight:600;font-size:1.08rem;overflow-wrap:anywhere}
+.details a{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px;text-decoration-color:var(--go)}
+.details a:hover{color:var(--go-deep)}
+.form-panel{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:clamp(24px,3.4vw,44px)}
+.form-panel h2{font-size:clamp(1.5rem,2.4vw,1.9rem);margin-bottom:6px}
+.form-panel .hint{color:var(--ink-2);margin-bottom:26px}
+.field{margin-bottom:20px}
+.field label{display:block;font-weight:600;font-size:.98rem;margin-bottom:7px}
+.field .opt{font-weight:400;color:var(--ink-2)}
+.field input,.field select,.field textarea{width:100%;min-height:50px;padding:12px 14px;background:#fff;border:1.5px solid #8C9A91;border-radius:4px;font-size:1rem;line-height:1.4}
+.field textarea{min-height:150px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:3px solid var(--go);outline-offset:1px;border-color:var(--go)}
+.field [aria-invalid="true"]{border-color:#B3261E}
+.field .err{display:none;color:#A8201A;font-size:.93rem;margin-top:6px;font-weight:500}
+.field [aria-invalid="true"] ~ .err{display:block}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.status{margin-top:18px;padding:14px 16px;border-radius:4px;font-weight:500;display:none}
+.status.show{display:block}
+.status.ok{background:#E3F3E9;color:#0B4A27;border:1px solid #9BD3B0}
+.status.bad{background:#FBE9E7;color:#7E1712;border:1px solid #E5A8A2}
+.status a{font-weight:700}
+.btn[disabled]{opacity:.7;cursor:progress}
+
+/* footer ----------------------------------------------------------- */
+.site-footer{background:var(--foot);color:#D2DBD4;border-top:1px solid #20332A}
+.foot{display:grid;grid-template-columns:minmax(0,5fr) repeat(3,minmax(0,2fr));gap:36px clamp(24px,4vw,64px);padding-block:clamp(48px,6vw,80px)}
+.foot .wordmark{color:var(--go-bright);font-size:1.9rem;display:inline-block;margin-bottom:16px}
+.foot p{max-width:36ch;color:#B7C3BB}
+.foot h2{font-family:var(--text);font-size:.98rem;font-weight:700;letter-spacing:0;color:#fff;margin-bottom:14px}
+.foot li{margin-bottom:8px}
+.foot a{text-decoration:none;color:#D2DBD4}
+.foot a:hover{color:#fff;text-decoration:underline;text-underline-offset:4px}
+.foot :focus-visible{outline-color:var(--go-bright)}
+.legal-bar{border-top:1px solid #20332A}
+.legal{padding-block:22px;font-size:.93rem;color:#9DAAA2}
+
+/* header in product rooms */
+body[data-view="ayvo"]{--hdr-bg:rgba(10,10,11,.94);--hdr-fg:var(--a-ink);--hdr-line:var(--a-line);--hdr-mark:var(--go-bright)}
+body[data-view="ayvo"] .site-header :focus-visible{outline-color:var(--a-orange)}
+body[data-view="nota54"]{--hdr-bg:rgba(241,246,251,.94);--hdr-line:var(--n-line)}
+
+/* responsive ------------------------------------------------------- */
+@media (max-width:1020px){
+  .flow{grid-template-columns:repeat(2,1fr)}
+  .team-grid{grid-template-columns:repeat(2,1fr)}
+  .foot{grid-template-columns:1fr 1fr}
+  .foot > div:first-child{grid-column:1/-1}
+}
+@media (max-width:900px){
+  .menu-btn{display:inline-block}
+  .site-nav{position:absolute;left:0;right:0;top:var(--hdr);background:var(--chalk);color:var(--ink);flex-direction:column;align-items:stretch;gap:0;padding:8px var(--gutter) 22px;border-bottom:1px solid var(--line);display:none}
+  body[data-view="ayvo"] .site-nav{background:var(--a-bg);color:var(--a-ink);border-bottom-color:var(--a-line)}
+  body[data-view="nota54"] .site-nav{background:var(--n-bg);color:var(--n-ink)}
+  .site-nav.open{display:flex}
+  .site-nav ul{flex-direction:column;align-items:stretch;gap:0}
+  .site-nav li a{display:block;padding:15px 0;font-size:1.1rem;border-bottom:1px solid var(--line);border-bottom-color:rgba(127,140,132,.35)}
+  .site-nav li a[aria-current="page"]{border-bottom-color:var(--hdr-mark)}
+  .nav-cta{margin-top:18px}
+  .hero-sub,.split,.index a,.band .wrap,.principle,.product-head,.note-row,.part,.industry,.contact-grid{grid-template-columns:1fr}
+  .doors{grid-template-columns:1fr}
+  .door{min-height:300px}
+  .door--nota,.door--ayvo{padding-left:var(--gutter);padding-right:var(--gutter)}
+  .pipeline{grid-template-columns:1fr}
+  .pipeline li{padding:0 0 36px 40px}
+  .pipeline li::before{top:4px}
+  .pipeline li::after{left:6px;right:auto;top:22px;bottom:-4px;width:2px;height:auto}
+  .pipeline li:last-child{padding-bottom:0}
+}
+@media (max-width:640px){
+  body{font-size:1rem}
+  .flow{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr 1fr;gap:34px 18px}
+  .avatar{width:min(100%,150px)}
+  .two{grid-template-columns:1fr}
+  .details div{grid-template-columns:1fr;gap:2px}
+  .foot{grid-template-columns:1fr}
+  .actions .btn{width:100%}
+}
+@media (max-width:380px){.team-grid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important;scroll-behavior:auto !important}
+}
+</style>
+</head>
+<body data-view="home">
+
+<a class="skip" href="#main" id="skip">Skip to content</a>
+
+<header class="site-header">
+  <div class="bar">
+    <a class="wordmark" href="#/home" aria-label="Trublshut, home">Trublshut</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="#/about" data-route="about">About</a></li>
+        <li><a href="#/nota54" data-route="nota54">Nota54</a></li>
+        <li><a href="#/ayvo" data-route="ayvo">AYVO</a></li>
+        <li><a href="#/industries" data-route="industries">Industries</a></li>
+        <li><a href="#/team" data-route="team">Team</a></li>
+      </ul>
+      <a class="btn btn-sm nav-cta" href="#/contact" data-route="contact">Contact us</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<!-- HOME ============================================================ -->
+<section class="view" id="view-home" aria-labelledby="h-home">
+  <div class="wrap hero">
+    <h1 id="h-home" tabindex="-1">Building technology that solves real business problems.</h1>
+    <div class="hero-sub">
+      <p class="lede">Trublshut is an African-owned technology company. We build products that solve operational problems for African industries, starting with logistics and supply chain through Nota54, and enquiry response through AYVO.</p>
+      <div class="actions">
+        <a class="btn" href="#/contact">Talk to us</a>
+        <a class="textlink" href="#/about">About Trublshut</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="doors">
+    <a class="door door--nota" href="#/nota54">
+      <span class="door-logo"><img src="assets/logos/nota54-logo.png" alt="Nota54" width="667" height="192"></span>
+      <h2>For logistics and supply chain</h2>
+      <p>Follows a customer enquiry through shipment validation, rate comparison and quotation to booking preparation.</p>
+      <span class="go">Explore Nota54</span>
+    </a>
+    <a class="door door--ayvo" href="#/ayvo">
+      <span class="door-logo"><img src="assets/logos/ayvo-logo.png" alt="AYVO" width="991" height="324"></span>
+      <h2>For enquiry response</h2>
+      <p>An AI-enabled service that drafts replies with human oversight, then handles timed follow-ups and weekly reporting.</p>
+      <span class="go">Explore AYVO</span>
+    </a>
+  </div>
+
+  <div class="wrap section">
+    <div class="split">
+      <h2>One company, built around products.</h2>
+      <div class="body">
+        <p>We describe Trublshut as a business technology ecosystem: a parent company with a portfolio of products. Each product is built around a specific operational problem inside an African industry.</p>
+        <p>Today the portfolio is Nota54 and AYVO. More will follow only when there is a real problem to solve and a product that solves it.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap" style="padding-bottom:var(--section)">
+    <nav class="index" aria-label="More about Trublshut">
+      <a href="#/about"><span class="ix-name">About</span><span class="ix-desc">Who we are and how we build.</span></a>
+      <a href="#/industries"><span class="ix-name">Industries</span><span class="ix-desc">Where our products are used today.</span></a>
+      <a href="#/team"><span class="ix-name">Team</span><span class="ix-desc">The people behind Trublshut.</span></a>
+      <a href="#/contact"><span class="ix-name">Contact</span><span class="ix-desc">Ask about a product, a pilot or a partnership.</span></a>
+    </nav>
+  </div>
+
+  <div class="band">
+    <div class="wrap">
+      <div>
+        <h2>Have an operational problem to talk through?</h2>
+      </div>
+      <div class="band-side">
+        <p>Ask about Nota54, discuss an AYVO pilot, or tell us about a partnership you have in mind.</p>
+        <div class="actions">
+          <a class="btn btn--white" href="#/contact">Contact us</a>
+          <a class="btn btn--ghost" href="mailto:hello@trublshut.com">hello@trublshut.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT =========================================================== -->
+<section class="view" id="view-about" aria-labelledby="h-about" hidden>
+  <div class="wrap page-head">
+    <h1 id="h-about" tabindex="-1">An African-owned technology company building products for African industries.</h1>
+  </div>
+  <div class="wrap" style="padding-bottom:var(--section)">
+    <div class="split">
+      <h2>Who we are</h2>
+      <div class="body">
+        <p>Trublshut is an African-owned technology company. We think of it as a business technology ecosystem: a parent company with a portfolio of products, each one aimed at an operational problem that African industries deal with every day.</p>
+        <p>Today the portfolio has two products. <a class="textlink" href="#/nota54">Nota54</a> supports logistics and supply chain work. <a class="textlink" href="#/ayvo">AYVO</a> is an enquiry response service for businesses that want customer enquiries answered and followed up consistently.</p>
+      </div>
+    </div>
+  </div>
+  <hr class="rule">
+  <div class="wrap section">
+    <h2 style="margin-bottom:clamp(28px,4vw,48px)">How we build</h2>
+    <div class="principles">
+      <div class="principle"><h3>Start with the operational problem</h3><p>Each product begins with a specific piece of work that is slow, manual or error-prone inside an industry, such as quoting a shipment or replying to an enquiry.</p></div>
+      <div class="principle"><h3>Keep people in charge</h3><p>Nota54 flags missing shipment information instead of guessing it. AYVO drafts replies with AI and keeps a person overseeing them.</p></div>
+      <div class="principle"><h3>Say what it does</h3><p>We describe what each product does in plain terms. We do not promise results we cannot stand behind, and our explainers say when they use sample data.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- NOTA54 ========================================================== -->
+<section class="view room-nota" id="view-nota54" aria-labelledby="h-nota54" hidden>
+  <div class="wrap page-head">
+    <div class="product-head">
+      <div>
+        <img class="logo-lg" src="assets/logos/nota54-logo.png" alt="Nota54" width="667" height="192">
+        <h1 id="h-nota54" tabindex="-1">From first enquiry to booking, in one flow.</h1>
+      </div>
+      <p class="lede">Nota54 is Trublshut's product for logistics and supply chain. It takes a customer enquiry, checks the shipment details, compares supplier rates, prepares the quotation and carries an accepted quote into booking preparation.</p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <figure class="player">
+      <video controls preload="none" playsinline poster="assets/video/nota54-poster.jpg" width="1280" height="720" aria-describedby="nota-cap">
+        <source src="assets/video/nota54-explainer.mp4" type="video/mp4">
+        Your browser cannot play this video. The six steps below describe what it shows.
+      </video>
+    </figure>
+    <p class="caption" id="nota-cap">Nota54 explainer, 51 seconds. Every record shown in the video is sample data.</p>
+  </div>
+
+  <div class="wrap section">
+    <h2 style="margin-bottom:clamp(28px,4vw,52px);max-width:18ch">What the explainer walks through</h2>
+    <ol class="flow">
+      <li><span class="n" aria-hidden="true">1</span><h3>Customer inquiry</h3><p>An enquiry arrives as a customer email and becomes a record that every later step refers back to.</p></li>
+      <li><span class="n" aria-hidden="true">2</span><h3>Shipment validation</h3><p>Origin, destination, equipment, commodity and ready date are pulled from the email. Anything missing, such as dimensions, is flagged.</p></li>
+      <li><span class="n" aria-hidden="true">3</span><h3>Rate comparison</h3><p>Supplier rates from rate sheets and emailed quotes are shown side by side with their validity dates. Expired quotes are marked.</p></li>
+      <li><span class="n" aria-hidden="true">4</span><h3>Quotation</h3><p>Supplier cost, relevant charges and a configured markup build the customer quotation, shown as a draft before it goes out.</p></li>
+      <li><span class="n" aria-hidden="true">5</span><h3>Customer acceptance</h3><p>The customer's reply is linked to the approved quotation, so acceptance is recorded against the right quote.</p></li>
+      <li><span class="n" aria-hidden="true">6</span><h3>Booking preparation</h3><p>The accepted quotation moves into booking preparation, still linked to the original inquiry.</p></li>
+    </ol>
+
+    <div class="note-row" style="margin-top:clamp(40px,5vw,72px)">
+      <h3>A work queue for the team</h3>
+      <p>The explainer ends on a queue that counts new inquiries, quotations awaiting a response and accepted quotations awaiting booking, so it is clear what needs attention next.</p>
+    </div>
+  </div>
+
+  <div class="wrap" style="padding-bottom:var(--section)">
+    <div class="actions">
+      <a class="btn" href="#/contact" data-interest="nota54">Talk to us about Nota54</a>
+      <a class="textlink" href="#/industries">See the industry it serves</a>
+    </div>
+  </div>
+</section>
+
+<!-- AYVO ============================================================ -->
+<section class="view room-ayvo" id="view-ayvo" aria-labelledby="h-ayvo" hidden>
+  <div class="wrap page-head">
+    <div class="product-head">
+      <div>
+        <img class="logo-lg" src="assets/logos/ayvo-logo.png" alt="AYVO" width="991" height="324">
+        <h1 id="h-ayvo" tabindex="-1">Enquiries answered promptly, with people still in charge.</h1>
+      </div>
+      <p class="lede">AYVO is an AI-enabled enquiry response service from Trublshut. It audits how your enquiries are handled today, drafts replies with AI under human oversight, follows up on a timer and reports every week.</p>
+    </div>
+  </div>
+
+  <!--
+    AYVO explainer video: none was supplied yet.
+    When you have one, save it as assets/video/ayvo-explainer.mp4 and a poster image as
+    assets/video/ayvo-poster.jpg, then delete the opening and closing comment markers
+    around the block below so the player appears.
+
+  <div class="wrap">
+    <figure class="player">
+      <video controls preload="none" playsinline poster="assets/video/ayvo-poster.jpg" width="1280" height="720">
+        <source src="assets/video/ayvo-explainer.mp4" type="video/mp4">
+      </video>
+    </figure>
+  </div>
+  -->
+
+  <div class="wrap section">
+    <h2 style="margin-bottom:clamp(28px,4vw,52px);max-width:16ch">What the service includes</h2>
+    <div class="parts">
+      <div class="part">
+        <h3>Enquiry audit</h3>
+        <div>
+          <p>We start by looking at how enquiries reach you and how they are answered now. You receive:</p>
+          <ul>
+            <li>A written report</li>
+            <li>A prioritised fix list</li>
+            <li>Reply templates</li>
+            <li>A follow-up sequence</li>
+          </ul>
+        </div>
+      </div>
+      <div class="part">
+        <h3>Enquiry response</h3>
+        <p>Replies are drafted by AI and overseen by a person, so every response is checked before the customer relies on it.</p>
+      </div>
+      <div class="part">
+        <h3>Follow-up sequences</h3>
+        <p>Timed follow-ups go out to enquiries that have not moved on, so a first reply is not the last contact.</p>
+      </div>
+      <div class="part">
+        <h3>Weekly reporting</h3>
+        <p>A report each week shows how your enquiries were handled, so you can see what is working and what needs a change.</p>
+      </div>
+      <div class="part">
+        <h3>30-day pilot</h3>
+        <p>We begin with a 30-day pilot on one enquiry source. You see how the service works on your own enquiries before deciding anything wider.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap" style="padding-bottom:var(--section)">
+    <h2 style="margin-bottom:clamp(28px,4vw,52px);max-width:20ch">How an enquiry moves through AYVO</h2>
+    <ol class="pipeline">
+      <li><span class="n" aria-hidden="true">1</span><h3>New enquiry</h3><p>An enquiry arrives from your chosen source.</p></li>
+      <li><span class="n" aria-hidden="true">2</span><h3>AI-drafted response with human oversight</h3><p>AI drafts the reply. A person reviews it.</p></li>
+      <li><span class="n" aria-hidden="true">3</span><h3>Timed follow-up</h3><p>A follow-up sequence continues the conversation.</p></li>
+      <li><span class="n" aria-hidden="true">4</span><h3>Weekly reporting</h3><p>You receive a weekly report on how enquiries were handled.</p></li>
+    </ol>
+    <p class="fine">A simple diagram of how the service runs. It is not a product screenshot.</p>
+    <div class="actions" style="margin-top:clamp(36px,5vw,64px)">
+      <a class="btn" href="#/contact" data-interest="ayvo">Discuss a 30-day pilot</a>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES ====================================================== -->
+<section class="view" id="view-industries" aria-labelledby="h-industries" hidden>
+  <div class="wrap page-head">
+    <h1 id="h-industries" tabindex="-1">Industries we serve</h1>
+    <p class="lede">Today our work centres on logistics and supply chain through Nota54, alongside an enquiry service for any business that answers customers.</p>
+  </div>
+  <div class="wrap" style="padding-bottom:var(--section)">
+    <div class="industry">
+      <h2>Logistics and supply chain</h2>
+      <div>
+        <p>Quoting and booking freight means enquiries that arrive by email, shipment details that have to be checked, supplier rates held in rate sheets and emailed quotes, and quotations that expire. Nota54 is built around that sequence of work.</p>
+        <a class="textlink" href="#/nota54">See how Nota54 works</a>
+      </div>
+    </div>
+    <div class="industry">
+      <h2>Businesses that handle customer enquiries</h2>
+      <div>
+        <p>AYVO is for businesses that receive customer enquiries and want them answered and followed up consistently. It begins with a 30-day pilot on one enquiry source.</p>
+        <a class="textlink" href="#/ayvo">See what AYVO includes</a>
+      </div>
+    </div>
+    <div class="industry">
+      <h2>Your industry</h2>
+      <div>
+        <p>If you work in an African industry with an operational problem you would like to talk through, we would like to hear about it.</p>
+        <a class="textlink" href="#/contact" data-interest="general">Get in touch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM ============================================================ -->
+<section class="view" id="view-team" aria-labelledby="h-team" hidden>
+  <div class="wrap page-head">
+    <h1 id="h-team" tabindex="-1">Our team</h1>
+    <p class="lede">The people behind Trublshut.</p>
+  </div>
+  <div class="wrap" style="padding-bottom:var(--section)">
+    <ul class="team-grid">
+      <li class="person"><div class="avatar" data-initials="CO"><img src="team/01-founder.jpg" alt="Portrait of Christopher Ojo" width="352" height="352" loading="lazy" decoding="async"></div><h2>Christopher Ojo</h2><p>Founder &amp; Principal</p></li>
+      <li class="person"><div class="avatar" data-initials="DO"><img src="team/02-engineering-lead.jpg" alt="Portrait of Denis Onyango" width="352" height="352" loading="lazy" decoding="async"></div><h2>Denis Onyango</h2><p>Engineering Lead</p></li>
+      <li class="person"><div class="avatar" data-initials="BB"><img src="team/03-Business-Development-Manager.jpg" alt="Portrait of Blessing Bassey-Effiong" width="352" height="352" loading="lazy" decoding="async"></div><h2>Blessing Bassey-Effiong</h2><p>Business Development Manager</p></li>
+      <li class="person"><div class="avatar" data-initials="AN"><img src="team/04-Operations-Manager.jpg" alt="Portrait of Amarachi Nwuche" width="352" height="352" loading="lazy" decoding="async"></div><h2>Amarachi Nwuche</h2><p>Operations Manager</p></li>
+      <li class="person"><div class="avatar" data-initials="AA"><img src="team/05-Financial-Adviser.jpg" alt="Portrait of Anastacia Aduke" width="352" height="352" loading="lazy" decoding="async"></div><h2>Anastacia Aduke</h2><p>Financial Adviser</p></li>
+      <li class="person"><div class="avatar" data-initials="OO"><img src="team/06-Legal-Representative.jpg" alt="Portrait of Otieno C.Okado" width="352" height="352" loading="lazy" decoding="async"></div><h2>Otieno C.Okado</h2><p>Legal Representative</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- CONTACT ========================================================= -->
+<section class="view" id="view-contact" aria-labelledby="h-contact" hidden>
+  <div class="wrap page-head">
+    <h1 id="h-contact" tabindex="-1">Contact us</h1>
+    <p class="lede">Ask about Nota54, discuss a 30-day AYVO pilot, raise a partnership, or send a general question.</p>
+  </div>
+  <div class="wrap" style="padding-bottom:var(--section)">
+    <div class="contact-grid">
+      <dl class="details">
+        <div><dt>Email</dt><dd><a href="mailto:hello@trublshut.com">hello@trublshut.com</a></dd></div>
+        <div><dt>WhatsApp</dt><dd><a href="https://wa.me/254117513755" target="_blank" rel="noopener">0117 513 755</a></dd></div>
+        <div><dt>Phone</dt><dd><a href="tel:+254117513755">0117 513 755</a></dd></div>
+        <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/company/trublshut" target="_blank" rel="noopener">Trublshut on LinkedIn</a></dd></div>
+      </dl>
+
+      <div class="form-panel">
+        <h2>Send us a message</h2>
+        <p class="hint">Your message goes to hello@trublshut.com.</p>
+        <form id="contact-form" action="https://formspree.io/f/mzdnzdlv" method="POST" novalidate>
+          <div class="two">
+            <div class="field"><label for="f-name">Name <span class="opt">(required)</span></label><input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name"><p class="err" id="e-name">Enter your name.</p></div>
+            <div class="field"><label for="f-email">Email <span class="opt">(required)</span></label><input id="f-email" name="email" type="email" autocomplete="email" required aria-describedby="e-email"><p class="err" id="e-email">Enter an email address we can reply to.</p></div>
+          </div>
+          <div class="field"><label for="f-org">Company or organisation <span class="opt">(optional)</span></label><input id="f-org" name="organisation" type="text" autocomplete="organization"></div>
+          <div class="field"><label for="f-topic">What is this about?</label>
+            <select id="f-topic" name="topic">
+              <option value="General enquiry">General enquiry</option>
+              <option value="Nota54">Nota54</option>
+              <option value="AYVO 30-day pilot">AYVO 30-day pilot</option>
+              <option value="Partnership or investment">Partnership or investment</option>
+              <option value="Joining or collaborating">Joining or collaborating</option>
+            </select>
+          </div>
+          <div class="field"><label for="f-msg">Message <span class="opt">(required)</span></label><textarea id="f-msg" name="message" required aria-describedby="e-msg"></textarea><p class="err" id="e-msg">Write a short message.</p></div>
+          <div class="hp" aria-hidden="true"><label>Leave this empty<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+          <button class="btn" type="submit" id="f-send">Send message</button>
+          <div class="status" id="f-status" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap foot">
+    <div>
+      <a class="wordmark" href="#/home" aria-label="Trublshut, home">Trublshut</a>
+      <p>An African-owned technology company building products that solve operational problems for African industries.</p>
+    </div>
+    <div>
+      <h2>Company</h2>
+      <ul>
+        <li><a href="#/about">About</a></li>
+        <li><a href="#/industries">Industries</a></li>
+        <li><a href="#/team">Team</a></li>
+        <li><a href="#/contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Products</h2>
+      <ul>
+        <li><a href="#/nota54">Nota54</a></li>
+        <li><a href="#/ayvo">AYVO</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Get in touch</h2>
+      <ul>
+        <li><a href="mailto:hello@trublshut.com">hello@trublshut.com</a></li>
+        <li><a href="https://wa.me/254117513755" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="https://www.linkedin.com/company/trublshut" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="legal-bar"><div class="wrap legal">&copy; 2026 Trublshut. All rights reserved.</div></div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  /* routing: one page, sections load by button, back button and deep links work */
+  var TITLES = {
+    home: 'Trublshut | Technology products for African industries',
+    about: 'About | Trublshut',
+    nota54: 'Nota54 | Trublshut',
+    ayvo: 'AYVO | Trublshut',
+    industries: 'Industries we serve | Trublshut',
+    team: 'Our team | Trublshut',
+    contact: 'Contact us | Trublshut'
+  };
+  var views = Array.prototype.slice.call(document.querySelectorAll('.view'));
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('[data-route]'));
+  var nav = document.getElementById('site-nav');
+  var menuBtn = document.querySelector('.menu-btn');
+  var firstRender = true;
+
+  function currentRoute() {
+    var h = (location.hash || '').replace(/^#\/?/, '').split('?')[0];
+    return TITLES[h] ? h : 'home';
+  }
+  function closeMenu() {
+    nav.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+  }
+  function render() {
+    var r = currentRoute();
+    views.forEach(function (v) { v.hidden = (v.id !== 'view-' + r); });
+    navLinks.forEach(function (a) {
+      if (a.getAttribute('data-route') === r) { a.setAttribute('aria-current', 'page'); }
+      else { a.removeAttribute('aria-current'); }
+    });
+    document.title = TITLES[r];
+    document.body.setAttribute('data-view', r);
+    closeMenu();
+    if (r !== 'nota54') { var vid = document.querySelector('#view-nota54 video'); if (vid && !vid.paused) { vid.pause(); } }
+    if (!firstRender) {
+      window.scrollTo(0, 0);
+      var h1 = document.querySelector('#view-' + r + ' h1');
+      if (h1) { h1.focus({ preventScroll: true }); }
+    }
+    firstRender = false;
+  }
+  window.addEventListener('hashchange', render);
+  render();
+
+  /* when the hash is unchanged (clicking the current page's link) still return to top */
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a[href^="#/"]') : null;
+    if (!a) { return; }
+    var interest = a.getAttribute('data-interest');
+    if (interest) { setTopic(interest); }
+    if (a.getAttribute('href') === '#/' + currentRoute()) { window.scrollTo(0, 0); }
+  });
+
+  var skip = document.getElementById('skip');
+  skip.addEventListener('click', function (e) {
+    e.preventDefault();
+    var m = document.getElementById('main');
+    m.focus({ preventScroll: false });
+  });
+
+  menuBtn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && nav.classList.contains('open')) { closeMenu(); menuBtn.focus(); }
+  });
+
+  /* team photos: if a photo file is missing, show initials instead of a broken image */
+  Array.prototype.forEach.call(document.querySelectorAll('.avatar'), function (box) {
+    var img = box.querySelector('img');
+    function fallback() {
+      var s = document.createElement('span');
+      s.className = 'mono';
+      s.setAttribute('aria-hidden', 'true');
+      s.textContent = box.getAttribute('data-initials') || '';
+      box.replaceChild(s, img);
+    }
+    img.addEventListener('error', fallback);
+  });
+
+  /* contact form */
+  var TOPICS = { nota54: 'Nota54', ayvo: 'AYVO 30-day pilot', partnership: 'Partnership or investment', collaborate: 'Joining or collaborating', general: 'General enquiry' };
+  var form = document.getElementById('contact-form');
+  var topic = document.getElementById('f-topic');
+  var status = document.getElementById('f-status');
+  var sendBtn = document.getElementById('f-send');
+  function setTopic(key) { if (TOPICS[key]) { topic.value = TOPICS[key]; } }
+
+  function showStatus(kind, html) {
+    status.className = 'status show ' + kind;
+    status.innerHTML = html;
+  }
+  function invalid(el, bad) {
+    if (bad) { el.setAttribute('aria-invalid', 'true'); } else { el.removeAttribute('aria-invalid'); }
+    return bad;
+  }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = document.getElementById('f-name');
+    var email = document.getElementById('f-email');
+    var msg = document.getElementById('f-msg');
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
+    var bad = [invalid(name, !name.value.trim()), invalid(email, !emailOk), invalid(msg, !msg.value.trim())];
+    status.className = 'status';
+    if (bad.indexOf(true) > -1) {
+      var first = [name, email, msg][bad.indexOf(true)];
+      first.focus();
+      return;
+    }
+    sendBtn.disabled = true;
+    sendBtn.textContent = 'Sending';
+    var data = new FormData(form);
+    data.append('_subject', 'Trublshut website: ' + topic.value);
+    fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+      .then(function (res) {
+        if (res.ok) {
+          form.reset();
+          showStatus('ok', 'Message sent. We will reply to the email address you gave.');
+        } else {
+          showStatus('bad', 'The message was not sent. Please try again, or email <a href="mailto:hello@trublshut.com">hello@trublshut.com</a>.');
+        }
+      })
+      .catch(function () {
+        showStatus('bad', 'The message was not sent because the connection failed. Please try again, or email <a href="mailto:hello@trublshut.com">hello@trublshut.com</a>.');
+      })
+      .then(function () {
+        sendBtn.disabled = false;
+        sendBtn.textContent = 'Send message';
+      });
+  });
+  ['f-name', 'f-email', 'f-msg'].forEach(function (id) {
+    var el = document.getElementById(id);
+    el.addEventListener('input', function () { el.removeAttribute('aria-invalid'); });
+  });
+})();
+</script>
+</body>
+</html>
