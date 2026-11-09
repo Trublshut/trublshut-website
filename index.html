@@ -246,7 +246,12 @@ h1[tabindex="-1"]:focus,main:focus{outline:none}
 .room-ayvo .btn{background:var(--go-bright);border-color:var(--go-bright);color:#06190E}
 .room-ayvo .btn:hover{background:#6BE2A1;border-color:#6BE2A1}
 .room-ayvo .textlink{text-decoration-color:var(--go-bright)}
-.room-ayvo .part .textlink{display:inline-block;margin-top:14px}
+.parts--cards{display:grid;grid-template-columns:1fr 1fr}
+.parts--cards .part{display:flex;flex-direction:column;align-items:stretch;gap:0;padding:clamp(24px,3vw,36px) clamp(20px,2.8vw,40px) clamp(24px,3vw,36px) 0;border-right:1px solid var(--a-line)}
+.parts--cards .part:nth-child(2n){border-right:0;padding-right:0;padding-left:clamp(20px,2.8vw,40px)}
+.parts--cards .part h3,.parts--cards .part p{min-width:0}
+.parts--cards .part p{margin-top:10px}
+.parts--cards .part .textlink{display:inline-block;align-self:flex-start;width:auto;margin-top:auto;padding-top:18px}
 
 /* industries ------------------------------------------------------- */
 .industry{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:14px clamp(28px,6vw,96px);padding:clamp(32px,4.4vw,56px) 0;border-top:1px solid var(--line)}
@@ -331,6 +336,8 @@ h1[tabindex="-1"]:focus,main:focus{outline:none}
   .pipeline li::before{top:4px}
   .pipeline li::after{left:6px;right:auto;top:22px;bottom:-4px;width:2px;height:auto}
   .pipeline li:last-child{padding-bottom:0}
+  .parts--cards{grid-template-columns:1fr}
+  .parts--cards .part,.parts--cards .part:nth-child(2n){border-right:0;padding-left:0;padding-right:0}
 }
 @media (max-width:640px){
   body{font-size:1rem}
@@ -588,27 +595,26 @@ h1[tabindex="-1"]:focus,main:focus{outline:none}
   <div class="wrap" style="padding-bottom:var(--section)">
     <h2 style="margin-bottom:clamp(28px,4vw,52px);max-width:16ch">Work with AYVO</h2>
     <p class="lede" style="margin-bottom:clamp(22px,3vw,36px)">Trublshut's AI-enabled services for small businesses that need enquiries answered and followed up consistently.</p>
-    <div class="parts">
+    <div class="parts parts--cards">
       <div class="part">
         <h3>$49 Enquiry-Handling Toolkit</h3>
-        <div>
-          <p>Self-serve scorecard, templates and follow-up cadence.</p>
-          <a class="textlink" href="https://whop.com/ayvo/enquiry-handling-toolkit/" rel="noopener" target="_blank">Get the toolkit on Whop</a>
-        </div>
+        <p>Self-serve scorecard, templates and follow-up cadence.</p>
+        <a class="textlink" href="https://whop.com/ayvo/enquiry-handling-toolkit/" rel="noopener" target="_blank">Get the toolkit on Whop</a>
       </div>
       <div class="part">
         <h3>Listing photo edits</h3>
-        <div>
-          <p>Brighten and straighten property listing photos — nothing faked.</p>
-          <a class="textlink" href="https://www.fiverr.com/ayvobytrublsh/brighten-and-straighten-your-property-listing-photos-nothing-faked" rel="noopener" target="_blank">Order on Fiverr</a>
-        </div>
+        <p>Brighten and straighten property listing photos — nothing faked.</p>
+        <a class="textlink" href="https://www.fiverr.com/ayvobytrublsh/brighten-and-straighten-your-property-listing-photos-nothing-faked" rel="noopener" target="_blank">Order on Fiverr</a>
       </div>
       <div class="part">
         <h3>$100 enquiry audit</h3>
-        <div>
-          <p>Done-for-you review of how your enquiries are handled today.</p>
-          <a class="textlink" href="#/contact" data-interest="ayvo">Discuss an audit</a>
-        </div>
+        <p>Done-for-you review of how your enquiries are handled today.</p>
+        <a class="textlink" href="#/contact" data-interest="ayvo">Discuss an audit</a>
+      </div>
+      <div class="part">
+        <h3>Hire us on Contra</h3>
+        <p>Book the $100 enquiry audit or listing photo edits through Contra.</p>
+        <a class="textlink" href="https://contra.com/ayvo_by_trublshut" rel="noopener" target="_blank">View AYVO on Contra</a>
       </div>
     </div>
   </div>
